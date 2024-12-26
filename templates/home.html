@@ -1,0 +1,657 @@
+{% extends "base.html" %}
+
+{% block title %}Home - EcoShop{% endblock %}
+
+{% block content %}
+<!-- Google Fonts Integration -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+<style>
+    /* CSS Variables for Consistent Styling */
+    :root {
+        --primary-color: #27ae60; /* Updated to a fresh green */
+        --primary-dark: #1e8449;
+        --secondary-color: #2ecc71;
+        --success-color: #28b463;
+        --text-color: #2c3e50;
+        --secondary-text: #7f8c8d;
+        --background-light: #ecf0f1;
+        --background-lighter: #ffffff;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --font-primary: 'Roboto', sans-serif;
+        --font-secondary: 'Montserrat', sans-serif;
+    }
+
+    body {
+        font-family: var(--font-primary);
+        background-color: var(--background-light);
+        color: var(--text-color);
+    }
+
+    /* General Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Jumbotron Customization */
+    .jumbotron {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 6rem 2rem;
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        color: #ffffff;
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .jumbotron h1 {
+        font-family: var(--font-secondary);
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .jumbotron p.lead {
+        font-size: 1.5rem;
+        color: #f1c40f;
+        margin-bottom: 2rem;
+        font-weight: 400;
+    }
+
+    .jumbotron .btn-primary {
+        background-color: #f1c40f;
+        color: #2c3e50;
+        border: none;
+        padding: 0.75rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .jumbotron .btn-primary:hover {
+        background-color: #d4ac0d;
+        transform: translateY(-3px);
+    }
+
+    /* Section Titles */
+    h2 {
+        font-family: var(--font-secondary);
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+    }
+
+    h2::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background-color: var(--secondary-color);
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    /* Section Styling */
+    .section {
+        padding: 4rem 0;
+    }
+
+    /* Circular Economy Section */
+    .circular-economy {
+        background-color: var(--background-lighter);
+        padding: 3rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3rem;
+        transition: transform 0.3s ease;
+    }
+
+    .circular-economy:hover {
+        transform: translateY(-5px);
+    }
+
+    .circular-economy .text-content {
+        flex: 1 1 500px;
+    }
+
+    .circular-economy ul.list-group li.list-group-item {
+        background-color: transparent;
+        border: none;
+        padding-left: 0;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        margin-bottom: 0.75rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .circular-economy ul.list-group li.list-group-item::before {
+        content: '✔️';
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .circular-economy img {
+        flex: 1 1 500px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .circular-economy img:hover {
+        transform: scale(1.05);
+        opacity: 0.95;
+    }
+
+    /* How EcoShop Works Section */
+    .how-ecoshop-works {
+        background-color: #ffffff;
+        padding: 3rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .how-ecoshop-works img {
+        flex: 1 1 500px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .how-ecoshop-works img:hover {
+        transform: scale(1.05);
+        opacity: 0.95;
+    }
+
+    .how-ecoshop-works .text-content {
+        flex: 1 1 500px;
+    }
+
+    .how-ecoshop-works ol.list-group-numbered li.list-group-item {
+        background-color: #f9f9f9;
+        border: 1px solid #dee2e6;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+        border-radius: 0.25rem;
+        color: var(--text-color);
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .how-ecoshop-works ol.list-group-numbered li.list-group-item::before {
+        content: counter(li);
+        counter-increment: li;
+        background-color: var(--primary-color);
+        color: #fff;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-weight: bold;
+    }
+
+    .how-ecoshop-works ol.list-group-numbered {
+        counter-reset: li;
+    }
+
+    .how-ecoshop-works .btn-success {
+        background-color: var(--success-color);
+        border: none;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .how-ecoshop-works .btn-success:hover {
+        background-color: var(--success-dark);
+        transform: translateY(-2px);
+    }
+
+    /* Benefits Section */
+    .benefits {
+        background-color: var(--background-light);
+        padding: 3rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .benefits .text-content {
+        margin-bottom: 2rem;
+    }
+
+    .benefits .card {
+        border: none;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+
+    .benefits .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .benefits .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .benefits .card img:hover {
+        transform: scale(1.1);
+    }
+
+    .benefits .card-title {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        margin-top: 1rem;
+        font-family: var(--font-secondary);
+    }
+
+    .benefits .card-text {
+        font-size: 1.1rem;
+        color: var(--secondary-text);
+        padding: 0 1rem 1.5rem 1rem;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+        background: linear-gradient(135deg, var(--background-lighter), var(--background-light));
+        padding: 4rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonials h2 {
+        font-family: var(--font-secondary);
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+    }
+
+    .testimonials h2::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background-color: var(--secondary-color);
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    .carousel {
+        position: relative;
+        padding: 2rem 0;
+    }
+
+    .carousel .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-item {
+        transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    }
+
+    .carousel-item blockquote {
+        font-size: 1.6rem;
+        font-style: italic;
+        color: #555;
+        position: relative;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow);
+        border-left: 5px solid var(--primary-color);
+        max-width: 800px;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-item blockquote:hover {
+        transform: translateY(-5px);
+    }
+
+    .carousel-item blockquote p {
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .carousel-item blockquote footer {
+        font-size: 1.2rem;
+        color: var(--secondary-text);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        padding: 1rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+        background-color: var(--primary-dark);
+        transform: scale(1.1);
+    }
+
+    .carousel-indicators li {
+        background-color: var(--primary-color);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(39, 174, 96, 0.5);
+    }
+
+    /* Get Started Section */
+    .get-started {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 4rem 2rem;
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        text-align: center;
+        color: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .get-started:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .get-started h2 {
+        font-family: var(--font-secondary);
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .get-started p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .get-started .btn-lg {
+        padding: 0.75rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .get-started .btn-lg:first-child {
+        background-color: #f1c40f;
+        color: #2c3e50;
+        border: none;
+    }
+
+    .get-started .btn-lg:first-child:hover {
+        background-color: #d4ac0d;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transform: translateY(-3px);
+    }
+
+    .get-started .btn-lg:last-child {
+        background-color: var(--success-color);
+        color: #ffffff;
+        border: none;
+    }
+
+    .get-started .btn-lg:last-child:hover {
+        background-color: var(--success-dark);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transform: translateY(-3px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .circular-economy,
+        .how-ecoshop-works,
+        .benefits {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .circular-economy ul.list-group li.list-group-item::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .circular-economy ul.list-group li.list-group-item {
+            padding-left: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .jumbotron {
+            padding: 4rem 1rem;
+        }
+
+        .jumbotron h1 {
+            font-size: 2.5rem;
+        }
+
+        .jumbotron p.lead {
+            font-size: 1.2rem;
+        }
+
+        .carousel-item blockquote {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .get-started h2 {
+            font-size: 2.2rem;
+        }
+
+        .get-started p {
+            font-size: 1.1rem;
+        }
+
+        .how-ecoshop-works ol.list-group-numbered li.list-group-item {
+            font-size: 1rem;
+        }
+
+        .benefits .card img {
+            height: 180px;
+        }
+    }
+</style>
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to EcoShop</h1>
+    <p class="lead">Promoting a Circular Economy through sustainable products and community engagement.</p>
+    <hr class="my-4">
+    <p>Learn how you can contribute to reducing waste and promoting reuse.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('products') }}" role="button">Shop Now</a>
+</div>
+
+<div class="container">
+    <!-- Section 1: What is Circular Economy? -->
+    <div class="section circular-economy">
+        <div class="text-content">
+            <h2>What is Circular Economy?</h2>
+            <p>The Circular Economy is an economic model aimed at minimizing waste and maximizing the use of resources. It contrasts with the traditional linear economy, which follows a 'take, make, dispose' approach. In a circular economy, resources are reused, repaired, refurbished, or recycled, creating a closed-loop system that reduces environmental impact and fosters long-term sustainability.</p>
+            
+            <p>This concept goes beyond just recycling. It's about designing products and processes that keep materials in use for as long as possible. By shifting towards circularity, we can reduce dependence on finite resources, mitigate environmental degradation, and create economic opportunities.</p>
+            
+            <p>Governments, businesses, and individuals all play a vital role in this transition. Many companies are now embracing circular strategies by designing eco-friendly products, promoting shared or rented use over ownership, and integrating sustainable practices into their operations.</p>
+    
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Reduce:</strong> Minimize the consumption of resources and energy in production processes.</li>
+                <li class="list-group-item"><strong>Reuse:</strong> Extend the lifecycle of products by finding new uses or repurposing them.</li>
+                <li class="list-group-item"><strong>Recycle:</strong> Convert waste materials into new products to prevent disposal in landfills.</li>
+                <li class="list-group-item"><strong>Rethink:</strong> Develop innovative business models and products that reduce waste generation from the start.</li>
+                <li class="list-group-item"><strong>Regenerate:</strong> Focus on regenerating natural systems and resources, rather than depleting them.</li>
+            </ul>
+        </div>
+
+        <img src="https://www.greenliferesource.com/images/circular-economy-infographic.jpg" class="img-fluid" alt="Circular Economy">
+    </div>
+
+    <!-- Section 2: How EcoShop Works -->
+    <div class="section how-ecoshop-works">
+        <img src="https://www.fractracker.org/a5ej20sjfwe/wp-content/uploads/2019/11/CircularEconomy.png" class="img-fluid" alt="How EcoShop Works">
+        <div class="text-content">
+            <h2>How EcoShop Works</h2>
+            <p>EcoShop is designed to facilitate the buying, selling, and exchanging of sustainable products within a community committed to environmental conservation. Here's how it works:</p>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item"><strong>Browse Products:</strong> Explore a wide range of eco-friendly products categorized for easy navigation.</li>
+                <li class="list-group-item"><strong>List Your Items:</strong> If you have items to sell or donate, simply upload them with descriptions and images.</li>
+                <li class="list-group-item"><strong>Connect with Others:</strong> Engage with community members through the Community Events page to participate in sustainable initiatives.</li>
+                <li class="list-group-item"><strong>Promote Reuse:</strong> By participating, you help reduce waste and promote the reuse of resources within the community.</li>
+            </ol>
+            <a class="btn btn-success mt-3" href="{{ url_for('community') }}" role="button">Join Our Community</a>
+        </div>
+    </div>
+
+    <!-- Section 3: Benefits of Joining EcoShop -->
+    <div class="section benefits">
+        <div class="text-content">
+            <h2>Benefits of Joining EcoShop</h2>
+            <p>Becoming a part of EcoShop comes with numerous advantages that contribute to personal growth and environmental sustainability:</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://loremflickr.com/500/300/money" class="card-img-top" alt="Save Money">
+                        <div class="card-body">
+                            <h5 class="card-title">Save Money</h5>
+                            <p class="card-text">Access affordable, high-quality sustainable products without compromising on quality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://loremflickr.com/500/300/environment" class="card-img-top" alt="Environmental Impact">
+                        <div class="card-body">
+                            <h5 class="card-title">Environmental Impact</h5>
+                            <p class="card-text">Contribute to reducing waste and conserving natural resources for a healthier planet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://loremflickr.com/500/300/community" class="card-img-top" alt="Community Engagement">
+                        <div class="card-body">
+                            <h5 class="card-title">Community Engagement</h5>
+                            <p class="card-text">Connect with like-minded individuals and participate in community-driven sustainability projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="https://loremflickr.com/800/500/greenery" class="img-fluid" alt="Benefits of EcoShop">
+    </div>
+
+    <!-- Section 4: Testimonials -->
+    <div class="section testimonials">
+        <h2>What Our Members Say</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">"EcoShop has transformed the way I shop. I feel good knowing my purchases are contributing to a sustainable future."</p>
+                        <footer class="blockquote-footer">Jane Doe, <cite title="Source Title">EcoShop Member</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="carousel-item">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">"The community events have been a great way to connect with others who share my passion for the environment."</p>
+                        <footer class="blockquote-footer">John Smith, <cite title="Source Title">EcoShop Member</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="carousel-item">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">"EcoShop makes it easy to find and sell sustainable products. It's a win-win for everyone involved."</p>
+                        <footer class="blockquote-footer">Emily Johnson, <cite title="Source Title">EcoShop Member</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Section 5: Get Started -->
+    <div class="section get-started">
+        <h2>Get Started with EcoShop</h2>
+        <p>Ready to make a difference? Join EcoShop today and be a part of a community dedicated to sustainability and environmental stewardship.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('products') }}" role="button">Browse Products</a>
+        <a class="btn btn-success btn-lg" href="{{ url_for('community') }}" role="button">Join Community</a>
+    </div>
+</div>
+
+<!-- Optional JavaScript for Carousel -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

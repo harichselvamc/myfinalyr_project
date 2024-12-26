@@ -1,0 +1,51 @@
+Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit (sec) (Max: 300 seconds),Correct Answer(s) (Only include Answer #)
+Which logic gate outputs 1 only when both inputs are 1?,AND gate,OR gate,NOT gate,XOR gate,10,1
+Which logic gate inverts the input signal?,NOT gate,AND gate,OR gate,NAND gate,10,1
+What does IoT stand for?,Internet of Technology,Internet of Things,Internet of Tools,Internet of Telecommunication,10,2
+Which logic gate outputs 1 if at least one input is 1?,OR gate,AND gate,NOT gate,NOR gate,10,1
+In IoT, what is a common use for sensors?,To detect physical changes in the environment,To store data,To provide internet access,To display images,10,1
+Which gate outputs 1 only when the inputs are different?,XOR gate,AND gate,OR gate,XNOR gate,10,1
+What type of gate outputs 0 only when both inputs are 1?,NAND gate,NOR gate,XOR gate,NOT gate,10,1
+Which of the following is an example of an IoT device?,Smart thermostat,Desktop computer,Inkjet printer,Landline telephone,10,1
+Which logic gate would you use to implement an alarm that triggers when any one of several sensors is activated?,OR gate,AND gate,NOT gate,NAND gate,10,1
+Which gate will output 0 when both inputs are 0?,OR gate,AND gate,NOT gate,NOR gate,10,1
+What does the term "smart" in smart devices typically refer to?,Connectivity to the internet,High processing speed,Large storage capacity,Durability,10,1
+Which logic gate will have an output of 1 if both inputs are 0?,NOR gate,AND gate,OR gate,NAND gate,10,1
+What is the role of an actuator in an IoT system?,To perform actions based on sensor input,To store data,To process data,To connect devices to the internet,10,1
+Which logic gate outputs 1 only if both inputs are 0?,NOR gate,AND gate,OR gate,XOR gate,10,1
+Which of the following is NOT a benefit of IoT?,Increased automation,Enhanced data collection,Reduced energy consumption,Increased data security risks,10,4
+Which logic gate would you use to create a circuit that outputs 0 when both inputs are 1?,NAND gate,OR gate,AND gate,XOR gate,10,1
+What is the primary function of a microcontroller in IoT devices?,To process data from sensors and control actuators,To provide internet connectivity,To display data,To store large amounts of data,10,1
+Which gate has an output of 1 when both inputs are 0?,NOR gate,AND gate,OR gate,NOT gate,10,1
+Which of the following protocols is commonly used in IoT for wireless communication?,MQTT,HTTP,FTP,SMTP,10,1
+Which logic gate outputs 1 when both inputs are the same?,XNOR gate,XOR gate,AND gate,OR gate,10,1
+What is the purpose of a gateway in an IoT network?,To connect IoT devices to the cloud,To store data,To provide power to devices,To process sensor data,10,1
+Which logic gate will always output 1 if both inputs are the same?,XNOR gate,XOR gate,NAND gate,NOR gate,10,1
+In IoT, what is the cloud commonly used for?,Storing and analyzing data,Displaying information,Powering devices,Communicating with sensors,10,1
+Which gate will output 0 if at least one input is 1?,NOR gate,AND gate,OR gate,XOR gate,10,1
+Which of the following is a security concern in IoT?,Data breaches,Improved automation,Reduced operational costs,Increased efficiency,10,1
+Which logic gate would you use to create a circuit that only outputs 1 when both inputs are 0?,NOR gate,AND gate,OR gate,NAND gate,10,1
+What type of data do IoT sensors typically collect?,Environmental data like temperature, humidity, etc.,Large-scale enterprise data,Historical data,User-generated content,10,1
+Which logic gate will have an output of 1 if the inputs are different?,XOR gate,AND gate,OR gate,XNOR gate,10,1
+Which of the following is a common application of IoT in smart cities?,Traffic management,Word processing,Social networking,Online shopping,10,1
+Which logic gate has the opposite output of an AND gate?,NAND gate,OR gate,XOR gate,NOR gate,10,1
+Which of the following technologies is essential for IoT connectivity?,Wi-Fi,USB,VGA,Ethernet,10,1
+Which logic gate outputs 1 if any one of its inputs is 1?,OR gate,AND gate,NOT gate,NAND gate,10,1
+In IoT, what is the role of a sensor?,To detect and measure physical conditions,To process data,To store data,To transmit data over the internet,10,1
+Which logic gate will output 0 only when all inputs are 1?,NAND gate,OR gate,AND gate,XOR gate,10,1
+What does the term "edge computing" refer to in IoT?,Processing data near the source of data collection,Storing data in the cloud,High-performance computing,Running software on large servers,10,1
+Which logic gate would you use to ensure an output of 0 when both inputs are 0?,OR gate,AND gate,NOT gate,NOR gate,10,1
+What is a potential benefit of using IoT in healthcare?,Remote patient monitoring,Manual data entry,Increased paperwork,Slower response times,10,1
+Which logic gate provides an output of 1 if both inputs are different?,XOR gate,AND gate,OR gate,NOR gate,10,1
+Which of the following devices can be classified as an IoT device?,Smart light bulb,Desktop computer,Inkjet printer,External hard drive,10,1
+Which gate will output 0 if both inputs are 1?,NAND gate,AND gate,OR gate,XOR gate,10,1
+Which of the following is an example of IoT in agriculture?,Automated irrigation systems,Desktop publishing,Online marketing,Retail management,10,1
+Which logic gate will always output 1 except when both inputs are 1?,NAND gate,AND gate,OR gate,XOR gate,10,1
+What is a common use of IoT in smart homes?,Automated lighting and heating,Video editing,Word processing,Graphic design,10,1
+Which gate provides an output of 1 only when both inputs are 0?,NOR gate,AND gate,OR gate,XOR gate,10,1
+Which logic gate is the inverse of an OR gate?,NOR gate,NAND gate,XOR gate,AND gate,10,1
+What is a key challenge in IoT deployment?,Data security and privacy,Improved device communication,Enhanced data storage,Increased network speeds,10,1
+Which logic gate outputs 1 only when all inputs are 1?,AND gate,OR gate,NOT gate,XOR gate,10,1
+Which of the following technologies is most commonly associated with IoT?,Wireless communication,Optical drives,Manual data processing,Mainframe computers,10,1
+Which logic gate would you use to implement a simple security system that triggers an alarm when any of the sensors detect intrusion?,OR gate,AND gate,NOT gate,NAND gate,10,1
+In IoT, what is the function of an actuator?,To take action based on processed data,To store data,To connect to the internet,To process data,10,1
